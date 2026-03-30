@@ -2,277 +2,228 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Lakshmi Srujana Sanaka — Full-Stack Developer & AI Engineer. Portfolio inspired by modern developer showcases." />
   <title>Lakshmi Srujana Sanaka | Full-Stack Developer</title>
-  <meta name="description" content="Portfolio of Lakshmi Srujana Sanaka - Aspiring Full-Stack Developer with strong software knowledge across full-stack development, backend systems, and AI-driven tools." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>LS</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
-      <a href="#hero" class="nav-logo">LS</a>
-      <button class="nav-toggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#achievements">Achievements</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#home" class="logos" aria-label="Home">
+        <span class="logo-text">LS</span>
+      </a>
+      <ul class="websites" id="nav-desktop">
+        <li><a href="#home" data-nav><i class="fa-solid fa-house fa-xl" aria-hidden="true"></i><span class="sr-only">Home</span></a></li>
+        <li><a href="#about" data-nav><i class="fa-solid fa-user fa-xl" aria-hidden="true"></i><span class="sr-only">About</span></a></li>
+        <li><a href="#projects" data-nav><i class="fa-solid fa-briefcase fa-xl" aria-hidden="true"></i><span class="sr-only">Projects</span></a></li>
+        <li><a href="#contact" data-nav><i class="fa-solid fa-envelope fa-xl" aria-hidden="true"></i><span class="sr-only">Contact</span></a></li>
+        <li><a href="https://github.com/srujana-sanaka" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github fa-xl" aria-hidden="true"></i><span class="sr-only">GitHub</span></a></li>
       </ul>
-    </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <i class="fa-solid fa-bars fa-xl"></i>
+      </button>
+    </div>
   </header>
 
+  <div class="arrange" id="mobile-drawer">
+    <div class="list">
+      <button type="button" class="cross" id="nav-close" aria-label="Close menu"><i class="fa-solid fa-xmark fa-xl"></i></button>
+      <a href="#home" data-nav-mobile>Home</a>
+      <a href="#about" data-nav-mobile>About</a>
+      <a href="#projects" data-nav-mobile>Projects</a>
+      <a href="#contact" data-nav-mobile>Contact</a>
+      <a href="https://github.com/srujana-sanaka" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+
   <main>
-    <section id="hero" class="hero">
-      <div class="hero-content">
-        <p class="hero-greeting">Hello, I'm</p>
-        <h1 class="hero-name">Lakshmi Srujana Sanaka</h1>
-        <p class="hero-title">Full-Stack Developer/AI Engineer</p>
-        <p class="hero-tagline">Building impactful, scalable software with full-stack, backend & AI-driven tools</p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get in Touch</a>
-          <a href="#projects" class="btn btn-outline">View Projects</a>
-        </div>
+    <section id="home" class="home-page">
+      <div class="text-zone">
+        <div class="heading" id="hero-heading" aria-label="Introduction"></div>
+        <p class="hero-sub text-left">Full-Stack Developer / AI Engineer</p>
+        <a href="#contact" class="btn">Contact me</a>
       </div>
-      <div class="hero-scroll">
-        <span>Scroll</span>
-        <div class="scroll-line"></div>
+      <div class="logo-con">
+        <img class="logo" src="profile.jpg" alt="Lakshmi Srujana Sanaka" width="400" height="400" />
       </div>
     </section>
 
-    <section id="about" class="section about">
-      <div class="container">
-        <h2 class="section-title">Career Objective</h2>
-        <div class="about-content">
-          <p class="about-text">
-            Career-driven student with hands-on experience in Generative AI, RAG systems, LangGraph, and backend API development. Passionate about building scalable, real-world AI applications using agentic workflows, knowledge-based retrieval, and modern Python frameworks.
-
+    <section id="about" class="about-page">
+      <div class="text-zone">
+        <h1><span class="about-title" id="about-title"></span></h1>
+        <div class="paragraph">
+          <p class="p-1">
+            As a full-stack developer and AI engineer, I am passionate about building scalable, real-world applications—from hostel management platforms to RAG-based assistants. I enjoy turning complex problems into clear, reliable software using modern Python frameworks, APIs, and thoughtful system design.
+          </p>
+          <p class="p-2">
+            I have hands-on experience with Generative AI, LangGraph-style workflows, vector search, and backend services. I care about security, data modeling, and developer experience, and I keep learning across cloud, databases, and full-stack tooling.
+          </p>
+          <p class="p-3">
+            Whether it is real-time features with WebSockets, graph algorithms for optimization, or LLM-powered agents, I aim to ship products that are maintainable and measurable.
           </p>
         </div>
-      </div>
-    </section>
 
-    <section id="education" class="section education">
-      <div class="container">
-        <h2 class="section-title">Education</h2>
-        <div class="education-grid">
-          <article class="edu-card">
-            <div class="edu-header">
-              <h3>Bachelor of Technology</h3>
-              <span class="edu-duration">July 2022 – April 2026</span>
-            </div>
-            <p class="edu-degree">Electronics and Communication Engineering</p>
-            <p class="edu-school">Rajiv Gandhi University of Knowledge Technologies</p>
-            <p class="edu-location">Ongole, India</p>
-            <span class="edu-grade">CGPA: 8.4</span>
-          </article>
-          <article class="edu-card">
-            <div class="edu-header">
-              <h3>Pre-University Course</h3>
-              <span class="edu-duration">Jan 2020 – June 2022</span>
-            </div>
-            <p class="edu-school">Rajiv Gandhi University of Knowledge Technologies</p>
-            <p class="edu-location">Ongole, India</p>
-            <span class="edu-grade">CGPA: 9.7</span>
-          </article>
-          <article class="edu-card">
-            <div class="edu-header">
-              <h3>General Studies</h3>
-              <span class="edu-duration">June 2017 – April 2020</span>
-            </div>
-            <p class="edu-school">Narayana EM School</p>
-            <p class="edu-location">Repalle, India</p>
-            <span class="edu-grade">496/500</span>
-          </article>
+        <h2 class="skill-heading">Education</h2>
+        <div class="education-row">
+          <div class="edu-pill"><strong>B.Tech</strong> — ECE, RGUKT Ongole · CGPA 8.4 · 2022–2026</div>
+          <div class="edu-pill"><strong>PUC</strong> — RGUKT Ongole · CGPA 9.7</div>
+          <div class="edu-pill"><strong>SSC</strong> — Narayana EM School · 496/500</div>
         </div>
-      </div>
-    </section>
 
-    <section id="skills" class="section skills">
-      <div class="container">
-        <h2 class="section-title">Skills Summary</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>Languages</h4>
-            <p>Python, C++, Java, JavaScript, SQL</p>
-          </div>
-          <div class="skill-category">
-            <h4>Web Technologies</h4>
-            <p>HTML, Tailwind CSS, React, Node.js, Flask, REST APIs, Django</p>
-          </div>
-          <div class="skill-category">
-            <h4>Cloud & DevOps</h4>
-            <p>Docker, Kubernetes, AWS, Git, CI/CD pipeline</p>
-          </div>
-          <div class="skill-category">
-            <h4>AI & Tools</h4>
-            <p>Machine Learning, Prompt Engineering, LLM API Integration, n8n, Salesforce</p>
-          </div>
-          <div class="skill-category">
-            <h4>Database</h4>
-            <p>PostgreSQL, MongoDB</p>
-          </div>
-          <div class="skill-category">
-            <h4>Software Development</h4>
-            <p>Agile Methodology, SDLC, Data Structures & Algorithms</p>
-          </div>
-          <div class="skill-category">
-            <h4>Soft Skills</h4>
-            <p>Problem Solving, Communication Skills</p>
-          </div>
+        <h2 class="skill-heading">Skillset</h2>
+        <div class="skills" data-reveal>
+          <div><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer" title="HTML"><i class="fa-brands fa-html5"></i></a></div>
+          <div><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer" title="CSS"><i class="fa-brands fa-css3-alt"></i></a></div>
+          <div><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" title="JavaScript"><i class="fa-brands fa-js"></i></a></div>
+          <div><a href="https://react.dev" target="_blank" rel="noopener noreferrer" title="React"><i class="fa-brands fa-react"></i></a></div>
+          <div><a href="https://nodejs.org" target="_blank" rel="noopener noreferrer" title="Node.js"><i class="fa-brands fa-node-js"></i></a></div>
+          <div><a href="https://www.python.org" target="_blank" rel="noopener noreferrer" title="Python"><i class="fa-brands fa-python"></i></a></div>
+          <div><a href="https://isocpp.org" target="_blank" rel="noopener noreferrer" title="C++"><i class="fa-solid fa-code"></i></a></div>
+          <div><a href="https://www.java.com" target="_blank" rel="noopener noreferrer" title="Java"><i class="fa-brands fa-java"></i></a></div>
         </div>
-      </div>
-    </section>
 
-    <section id="projects" class="section projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-list">
-          <article class="project-card">
-            <div class="project-header">
-              <h3>Hostel Room Swap Platform</h3>
-              <span class="project-tech">Flask, SocketIO, PostgreSQL, Python, HTML</span>
-              <a href="https://github.com/srujana-sanaka/swap-my-room" target="_blank" rel="noopener noreferrer" class="project-link">GitHub →</a>
-            </div>
-            <ul class="project-points">
-              <li>Developed a web application to streamline hostel room exchanges, enabling students to post room preferences and manage swap requests with real-time updates.</li>
-              <li>Implemented secure authentication, email-based password reset, and PostgreSQL-backed data management for reliability and security.</li>
-              <li>Integrated real-time notifications using Socket.IO to provide instant updates on swap requests and user actions.</li>
-            </ul>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h3>WiFi Router Placement Optimizer</h3>
-              <span class="project-tech">C++, Graph Theory, OpenGL</span>
-              <a href="https://github.com/srujana-sanaka/WiFi-router-placement-optimizer" target="_blank" rel="noopener noreferrer" class="project-link">GitHub →</a>
-            </div>
-            <ul class="project-points">
-              <li>Designed a BFS-based optimization algorithm with a Greedy Set Cover approach to maximize WiFi coverage.</li>
-              <li>Implemented efficient graph-based data structures (STL vectors, sets, queues) for input parsing, coverage computation, and performance optimization.</li>
-              <li>Built an OpenGL visualization to simulate router placement and display covered vs uncovered rooms in real time.</li>
-            </ul>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h3>AI Memory Assistant</h3>
-              <span class="project-tech">FastAPI, PostgreSQL, Vector DB, RAG, LLMs</span>
-              <a href="https://github.com/srujana-sanaka/AI_MEMORY_ASSISTANT" target="_blank" rel="noopener noreferrer" class="project-link">GitHub →</a>
-            </div>
-            <ul class="project-points">
-              <li>Developed an AI-powered memory assistant using vector embeddings and semantic search for contextual recall.</li>
-              <li>Implemented Retrieval-Augmented Generation (RAG) to generate accurate responses from stored user memories.</li>
-              <li>Designed scalable FastAPI backend services integrated with PostgreSQL for efficient data retrieval.</li>
-            </ul>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h3>AI SQL Agent</h3>
-              <span class="project-tech">LLM, Natural Language, SQL, Data Querying</span>
-              <a href="https://github.com/srujana-sanaka/AI-SQL-Agent" target="_blank" rel="noopener noreferrer" class="project-link">GitHub →</a>
-            </div>
-            <ul class="project-points">
-              <li>Built an agent that queries data without writing SQL—users ask questions in natural language.</li>
-              <li>Uses an LLM to interpret questions and generate or execute the right queries against the database.</li>
-              <li>Enables non-technical users to get insights from data through simple conversational queries.</li>
-            </ul>
-          </article>
-          <article class="project-card">
-            <div class="project-header">
-              <h3>Weather App</h3>
-              <span class="project-tech">Weather API, JavaScript, Location Search</span>
-              <a href="https://github.com/srujana-sanaka/Weather" target="_blank" rel="noopener noreferrer" class="project-link">GitHub →</a>
-            </div>
-            <ul class="project-points">
-              <li>Weather application that uses a weather API to fetch and display current conditions for any location.</li>
-              <li>Users can search by city or location name to see temperature, conditions, and other weather data.</li>
-              <li>Clean, responsive UI to view weather at any location by search.</li>
-            </ul>
-          </article>
+        <h2 class="tools-heading">Tools</h2>
+        <div class="tools" data-reveal>
+          <div><a href="https://www.docker.com" target="_blank" rel="noopener noreferrer" title="Docker"><i class="fa-brands fa-docker"></i></a></div>
+          <div><a href="https://git-scm.com" target="_blank" rel="noopener noreferrer" title="Git"><i class="fa-brands fa-git-alt"></i></a></div>
+          <div><a href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer" title="AWS"><i class="fa-brands fa-aws"></i></a></div>
+          <div><a href="https://www.mongodb.com" target="_blank" rel="noopener noreferrer" title="MongoDB"><i class="fa-solid fa-database"></i></a></div>
+          <div><a href="https://www.postgresql.org" target="_blank" rel="noopener noreferrer" title="PostgreSQL"><i class="fa-solid fa-server"></i></a></div>
+          <div><a href="https://flask.palletsprojects.com" target="_blank" rel="noopener noreferrer" title="Flask"><i class="fa-solid fa-flask"></i></a></div>
+          <div><a href="https://www.djangoproject.com" target="_blank" rel="noopener noreferrer" title="Django"><i class="fa-solid fa-d"></i></a></div>
+          <div><a href="https://kubernetes.io" target="_blank" rel="noopener noreferrer" title="Kubernetes"><i class="fa-solid fa-dharmachakra"></i></a></div>
         </div>
-      </div>
-    </section>
 
-    <section id="certifications" class="section certifications">
-      <div class="container">
-        <h2 class="section-title">Courses & Certifications</h2>
-        <ul class="cert-list">
-          <li><span class="cert-name">Machine Learning</span> – NPTEL</li>
-          <li><span class="cert-name">Digital Image Processing</span> – NPTEL</li>
-          <li><span class="cert-name">AI for Everyone</span> – Coursera</li>
-          <li><span class="cert-name">Strategic Planning</span> – HP Life</li>
-          <li><span class="cert-name">AWS Fundamentals</span> – Coursera</li>
+        <h2 class="skill-heading">Certifications</h2>
+        <ul class="plain-list">
+          <li>Machine Learning — NPTEL</li>
+          <li>Digital Image Processing — NPTEL</li>
+          <li>AI for Everyone — Coursera</li>
+          <li>Strategic Planning — HP Life</li>
+          <li>AWS Fundamentals — Coursera</li>
         </ul>
-      </div>
-    </section>
 
-    <section id="achievements" class="section achievements">
-      <div class="container">
-        <h2 class="section-title">Participations & Achievements</h2>
-        <ul class="achievements-list">
-          <li>Presented AI-based Data Analytics project in College-Level Project Expo ranked among top 5 teams</li>
-          <li>Qualified GATE 2025 with AIR 7328</li>
-          <li>Solved 20+ coding challenges and participated in CodeChef contests</li>
+        <h2 class="skill-heading">Achievements</h2>
+        <ul class="plain-list">
+          <li>AI-based Data Analytics project — College Expo, top 5 teams</li>
+          <li>GATE 2025 — AIR 7328</li>
+          <li>20+ coding challenges, CodeChef contests</li>
         </ul>
+
+        <h2 class="tools-heading">Interests</h2>
+        <p class="interests-line">Badminton · Chess · Music · Animation</p>
       </div>
     </section>
 
-    <section id="interests" class="section interests">
-      <div class="container">
-        <h2 class="section-title">Other Interests</h2>
-        <div class="interests-grid">
-          <div class="interest-item">
-            <span class="interest-icon" aria-hidden="true">🏸</span>
-            <span class="interest-name">Badminton</span>
+    <section id="projects" class="project-page">
+      <h1>Projects</h1>
+      <div class="projects">
+        <article class="image-box">
+          <div class="project-image" style="background: linear-gradient(135deg, #115173, #0a3d52);"></div>
+          <div class="content">
+            <h3 class="title">Hostel Room Swap</h3>
+            <p class="description">Flask, Socket.IO, PostgreSQL — real-time room exchange for students.</p>
+            <a class="btn-project" href="https://github.com/srujana-sanaka/swap-my-room" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <div class="interest-item">
-            <span class="interest-icon" aria-hidden="true">♟</span>
-            <span class="interest-name">Chess</span>
+        </article>
+        <article class="image-box image-box--video">
+          <video class="project-video-bg" muted loop playsinline preload="metadata" poster="">
+            <source src="Anime_WiFi_Router_Optimization_Visualization.mp4" type="video/mp4" />
+          </video>
+          <div class="content">
+            <h3 class="title">WiFi Router Optimizer</h3>
+            <p class="description">C++, graph theory, OpenGL visualization for coverage.</p>
+            <a class="btn-project" href="https://github.com/srujana-sanaka/WiFi-router-placement-optimizer" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <div class="interest-item">
-            <span class="interest-icon" aria-hidden="true">🎵</span>
-            <span class="interest-name">Music</span>
+        </article>
+        <article class="image-box">
+          <div class="project-image" style="background: linear-gradient(135deg, #4a1942, #115173);"></div>
+          <div class="content">
+            <h3 class="title">AI Memory Assistant</h3>
+            <p class="description">FastAPI, RAG, vector DB, PostgreSQL.</p>
+            <a class="btn-project" href="https://github.com/srujana-sanaka/AI_MEMORY_ASSISTANT" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
-          <div class="interest-item">
-            <span class="interest-icon" aria-hidden="true">🎬</span>
-            <span class="interest-name">Animation</span>
+        </article>
+        <article class="image-box">
+          <div class="project-image" style="background: linear-gradient(135deg, #2d1f4e, #115173);"></div>
+          <div class="content">
+            <h3 class="title">AI SQL Agent</h3>
+            <p class="description">Natural language to SQL with LLMs.</p>
+            <a class="btn-project" href="https://github.com/srujana-sanaka/AI-SQL-Agent" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
+        </article>
+        <article class="image-box">
+          <div class="project-image" style="background: linear-gradient(135deg, #1a3a2f, #115173);"></div>
+          <div class="content">
+            <h3 class="title">Weather App</h3>
+            <p class="description">Weather API, JavaScript, location search.</p>
+            <a class="btn-project" href="https://github.com/srujana-sanaka/Weather" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-page">
+      <div class="contact">
+        <div class="text-zone">
+          <h1><span id="contact-title"></span></h1>
+          <p>
+            I am interested in internships, full-time roles, and ambitious projects in full-stack or AI engineering. If you have a question or an opportunity, reach out via the form or the links below.
+          </p>
+          <form class="contact-form" id="contact-form" action="mailto:sanakalakshmisrujana@gmail.com" method="get" enctype="text/plain">
+            <ul>
+              <li><input type="text" name="subject" placeholder="Subject" required /></li>
+              <li><textarea name="body" placeholder="Message" rows="6" required></textarea></li>
+              <li><button type="submit" class="btn-form">Send</button></li>
+            </ul>
+          </form>
         </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-grid">
-          <a href="mailto:sanakalakshmisrujana@gmail.com" class="contact-item">
-            <span class="contact-label">Email</span>
-            <span class="contact-value">sanakalakshmisrujana@gmail.com</span>
-          </a>
-          <a href="tel:+919705804902" class="contact-item">
-            <span class="contact-label">Mobile</span>
-            <span class="contact-value">+91-9705804902</span>
-          </a>
-          <a href="https://linkedin.com/in/iamsuji" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <span class="contact-label">LinkedIn</span>
-            <span class="contact-value">linkedin.com/in/iamsuji</span>
-          </a>
-          <a href="https://github.com/srujana30-106" target="_blank" rel="noopener noreferrer" class="contact-item">
-            <span class="contact-label">GitHub</span>
-            <span class="contact-value">github.com/srujana-sanaka</span>
-          </a>
+        <div class="map-wrap">
+          <iframe
+            class="map-iframe"
+            title="Map — Ongole, India"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=79.96%2C15.47%2C80.10%2C15.55&amp;layer=mapnik"
+            loading="lazy"
+          ></iframe>
         </div>
       </div>
     </section>
   </main>
 
-  
+  <div class="footer-page" data-reveal>
+    <footer class="footer">
+      <div class="main-body">
+        <div class="contact-details">
+          <h2>Details</h2>
+          <ul>
+            <li><a href="mailto:sanakalakshmisrujana@gmail.com"><i class="fa-solid fa-envelope"></i> sanakalakshmisrujana@gmail.com</a></li>
+            <li><a href="tel:+919705804902"><i class="fa-solid fa-phone"></i> +91-9705804902</a></li>
+            <li>
+              <ul class="social-row">
+                <li><a href="https://linkedin.com/in/iamsuji" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/srujana-sanaka" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="contents">
+          <h2>Quick links</h2>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; <span id="year"></span> Lakshmi Srujana Sanaka</p>
+    </footer>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,62 +1,157 @@
 (function () {
   'use strict';
 
-  // Current year in footer
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
-  var navToggle = document.querySelector('.nav-toggle');
-  var navLinks = document.querySelector('.nav-links');
-  if (navToggle && navLinks) {
-    navToggle.addEventListener('click', function () {
-      navToggle.classList.toggle('is-active');
-      navLinks.classList.toggle('is-open');
-      document.body.style.overflow = navLinks.classList.contains('is-open') ? 'hidden' : '';
-    });
-
-    // Close menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        navToggle.classList.remove('is-active');
-        navLinks.classList.remove('is-open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
-
-  // Header background on scroll
-  var header = document.querySelector('.header');
-  if (header) {
-    function onScroll() {
-      header.style.background = window.scrollY > 50
-        ? 'rgba(15, 15, 18, 0.95)'
-        : 'rgba(15, 15, 18, 0.85)';
+  function appendSpacedLetters(container, line, startIndex) {
+    var idx = startIndex;
+    for (var i = 0; i < line.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'text-animate _' + idx;
+      idx += 1;
+      span.textContent = ' ' + line[i] + ' ';
+      container.appendChild(span);
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+    container.appendChild(document.createElement('br'));
+    return idx;
   }
 
-  // Optional: subtle fade-in for sections (if prefers reduced motion, skip)
-  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!prefersReducedMotion) {
-    var sections = document.querySelectorAll('.section');
-    var observer = new IntersectionObserver(
+  function buildHeroHeading() {
+    var el = document.getElementById('hero-heading');
+    if (!el) return;
+    var idx = 10;
+    idx = appendSpacedLetters(el, 'Hi,', idx);
+    idx = appendSpacedLetters(el, "I'm", idx);
+    idx = appendSpacedLetters(el, 'Lakshmi', idx);
+    idx = appendSpacedLetters(el, 'Srujana', idx);
+    appendSpacedLetters(el, 'Sanaka', idx);
+  }
+
+  function buildTitle(el, text, startIndex) {
+    if (!el) return;
+    var idx = startIndex;
+    for (var i = 0; i < text.length; i++) {
+      var span = document.createElement('span');
+      span.className = 'text-animate _' + idx;
+      idx += 1;
+      if (text[i] === ' ') {
+        span.innerHTML = '&nbsp;';
+      } else {
+        span.textContent = ' ' + text[i] + ' ';
+      }
+      el.appendChild(span);
+    }
+  }
+
+  buildHeroHeading();
+  buildTitle(document.getElementById('about-title'), 'About Me', 10);
+  buildTitle(document.getElementById('contact-title'), 'Contact', 10);
+
+  var prefersReduced =
+    typeof window.matchMedia === 'function' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    window.setTimeout(function () {
+      document.querySelectorAll('.text-animate').forEach(function (node) {
+        node.classList.remove('text-animate');
+        node.classList.add('text-animate-hover');
+      });
+    }, 3000);
+  } else {
+    document.querySelectorAll('.text-animate').forEach(function (node) {
+      node.classList.remove('text-animate');
+      node.classList.add('text-animate-hover');
+    });
+  }
+
+  var toggle = document.getElementById('nav-toggle');
+  var drawer = document.getElementById('mobile-drawer');
+  var closeBtn = document.getElementById('nav-close');
+
+  function openDrawer() {
+    if (!drawer) return;
+    drawer.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!drawer) return;
+    drawer.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  if (toggle && drawer) {
+    toggle.addEventListener('click', openDrawer);
+    drawer.addEventListener('click', function (e) {
+      if (e.target === drawer) closeDrawer();
+    });
+  }
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDrawer);
+  }
+  document.querySelectorAll('[data-nav-mobile]').forEach(function (link) {
+    link.addEventListener('click', closeDrawer);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (!href || href === '#' || href.length < 2) return;
+    a.addEventListener('click', function (e) {
+      var target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth' });
+        closeDrawer();
+      }
+    });
+  });
+
+  if (prefersReduced || typeof IntersectionObserver === 'undefined') {
+    document.querySelectorAll('[data-reveal]').forEach(function (node) {
+      node.classList.add('is-visible');
+    });
+  } else {
+    var rev = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('is-visible');
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+      { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
     );
-    sections.forEach(function (section) {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(16px)';
-      section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      observer.observe(section);
+    document.querySelectorAll('[data-reveal]').forEach(function (node) {
+      rev.observe(node);
+    });
+  }
+
+  var videoBox = document.querySelector('.image-box--video');
+  var videoEl = document.querySelector('.image-box--video .project-video-bg');
+  if (videoBox && videoEl && !prefersReduced) {
+    videoBox.addEventListener('mouseenter', function () {
+      videoEl.play().catch(function () {});
+    });
+    videoBox.addEventListener('mouseleave', function () {
+      videoEl.pause();
+    });
+  }
+
+  var form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      var subject = form.querySelector('[name="subject"]');
+      var body = form.querySelector('[name="body"]');
+      if (!subject || !body) return;
+      var mail =
+        'mailto:sanakalakshmisrujana@gmail.com?subject=' +
+        encodeURIComponent(subject.value) +
+        '&body=' +
+        encodeURIComponent(body.value);
+      e.preventDefault();
+      window.location.href = mail;
     });
   }
 })();
